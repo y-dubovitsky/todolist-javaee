@@ -10,8 +10,9 @@
         <title>TO DO List</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
               integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
-        <link rel="stylesheet" href="../static/css/style.css" />
+        <link rel="stylesheet" href="static/css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -19,12 +20,12 @@
             <jsp:include page="fragment/header.jsp"/>
         </header>
         <div class="row container-context">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <aside>
                     <jsp:include page="fragment/aside.jsp"/>
                 </aside>
             </div>
-            <div class="col-md-11">
+            <div class="col-md-10">
                 <main>
                     <jsp:include page="${currentPage}"/>
                 </main>
@@ -41,7 +42,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
                 integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
                 crossorigin="anonymous"></script>
-        <script src="../static/js/todo.js"></script>
+        <script src="static/js/todo.js"></script>
     </body>
 
 </html>

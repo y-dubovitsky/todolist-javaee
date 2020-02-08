@@ -1,5 +1,5 @@
 .navbar.navbar-default {
-  padding: 10px 0;
+  /*padding: 10px 0;*/
   background-color: #ffffff;
   border-bottom: 2px solid #70a9bf;
   box-shadow: 0 5px 20px rgba(65, 105, 225, 0.3);
@@ -11,7 +11,7 @@
 }
 
 .row.container-context {
-    padding: 100px 0;
+  padding: 100px 0;
 }
 
 .navbar-brand {
@@ -48,14 +48,50 @@
   flex-direction: column;
 }
 
+.nav.nav-pills li {
+  margin-bottom: 8px;
+}
+
 .button.load-more {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .panel-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test {
+  background-color: black;
+  color: black;
+  border: 2px solid red;
+}
+
+.hide-button {
+  display: none;
+}
+
+.message-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.useful-tips {
+    text-align: center;
+}
+
+.input-group {
+  margin: 10px;
+}
+
+.btn.btn-link {
+  padding: 15px;
+}
+
+.current-time {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }

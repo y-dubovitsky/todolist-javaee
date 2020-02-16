@@ -1,4 +1,7 @@
-<%@page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- Task -->
 <div class="panel panel-default">
@@ -72,36 +75,3 @@
     </div>
 </div>
 <!-- Task -->
-<nav aria-label="...">
-    <ul class="pager">
-        <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-        <button type="button" id="loadMore" class="btn btn-primary btn-sm">Load more</button>
-        <img id="load-img" src="static/img/loading.gif" class="hide-button " alt="loading...">
-        <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-    </ul>
-</nav>
-<!-- Modal window -->
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                    Save changes
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal window -->

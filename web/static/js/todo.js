@@ -4,23 +4,42 @@
      * Initialization function
      */
     let start = function() {
-        $("#loadMore").click(removeProductFromCart);
         timeChange($(".current-time"));
     };
 
     /**
-     * Deletes the "load more" button and instead shows load.gif
+     * Функция загрузки дополнительных задач вниз страницы
      */
-    let removeProductFromCart = function () {
-        let btn = $(this);
-        let b = document.getElementById("loadMore");
-        btn.addClass("hide-button ");
-        $("#load-img").removeClass("hide-button ");
-        setTimeout(function() {
-            $("#load-img").addClass("hide-button ");
-            btn.removeClass("hide-button ");
-        }, 1000);
-    };
+    $(document).ready(function() {
+        $("#loadMore").bind("click", function () {
+            $.ajax({
+                url: "/ajax/html/more/products", // обращение к сервлету, обрабатывающема аякс запросы
+                before: function() {
+                    $("#loadMore").addClass("hide-button"); // прячем кнопку загрузки
+                    $("#load-img").removeClass("hide-button "); // крутиться колесико =)
+                },
+                success: function (html) {
+                    $('#pager-nav').prepend(html); // выводим список задач
+                    $("#load-img").addClass("hide-button ");
+                    $("#loadMore").removeClass("hide-button ");
+                }
+            });
+        });
+    });
+
+    /**
+     * Загрузить старые задачи, а текущие убрать заменить
+     */
+    var loadOlderTasks = function() {
+        // Обработчик клавиши Older
+    }
+
+    /**
+     * Загрузить новые задачи, а текущие убрать заменить
+     */
+    var loadNewerTasks = function() {
+
+    }
 
     /**
      * Returns current date and time

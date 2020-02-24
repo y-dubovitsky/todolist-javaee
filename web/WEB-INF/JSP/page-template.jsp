@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="static/css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     </head>
 
     <body>
@@ -42,6 +43,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
                 integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
                 crossorigin="anonymous"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         <script src="static/js/todo.js"></script>
     </body>
 

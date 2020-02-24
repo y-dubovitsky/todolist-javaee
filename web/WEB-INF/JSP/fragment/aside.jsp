@@ -18,12 +18,14 @@
 <ul class="list-group">
     <li class="list-group-item">
         <ul class="nav nav-pills">
-            <h1 class="theme switcher"><small>Light Theme</small></h1>
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input id="switcher" type="checkbox" checked>
-                <span class="slider round"></span>
-            </label>
+            <div class="col">
+                <div class="checkbox">
+                    <label>
+                        <input id="toggle-two" type="checkbox" data-toggle="toggle" data-on="Light Theme" data-off="Dark Theme" checked>
+                        <span>Change Theme</span>
+                    </label>
+                </div>
+            </div>
         </ul>
     </li>
 </ul>

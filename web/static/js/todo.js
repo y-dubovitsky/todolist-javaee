@@ -7,7 +7,9 @@
         timeChange($(".current-time"));
         $('#loadMore').on("click", loadMoreTasks);
         $(".btn.btn-danger").on("click", deleteTask);
-        changeTheme();
+        //TODO https://www.bootstraptoggle.com/
+        toogle();
+        $('#toggle-two').change(changeTheme);
     };
 
     /**
@@ -91,23 +93,22 @@
         }, 100);
     };
 
-    /**
-     * This function change main theme
-     */
-    var changeTheme = function() {
-        $("#switcher").bind("click", function() {
-            if($("#switcher").prop("checked") == 'checked') {
-                $(".theme.switcher").text("Light Theme");
-                $("#switcher").prop('checked', false);
-            }
-            else {
-                $(".row.container-context").addClass("dark-theme");
-                $(".theme.switcher").text("Dark Theme");
-                $("#switcher").prop('checked', true);
-            }
+    var toogle = function() {
+        $('#toggle-two').bootstrapToggle({
+            //TODO Дописать
+            on: 'Light Theme',
+            off: 'Dark Theme'
         });
     };
 
+    //TODO Дописать функцию
+    var changeTheme = function() {
+        if(this.checked) {
+            alert("please rewrite my js function!");
+            $(".row.container-context").addClass("dark-theme");
+            this.attr("checked", "");
+        }
+    };
 
     /**
      * Start up init function

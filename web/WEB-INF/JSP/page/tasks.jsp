@@ -1,12 +1,10 @@
-<jsp:include page="../fragment/tasks-list.jsp"/>
-<nav id="pager-nav" aria-label="...">
-    <ul class="pager">
-        <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-        <button type="button" id="loadMore" class="btn btn-primary btn-sm">Load more</button>
-        <img id="load-img" src="static/img/loading.gif" class="hide-button " alt="loading...">
-        <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-    </ul>
-</nav>
-<!-- Modal window -->
-<task-modal:task-edit-modal/>
-<!-- Modal window -->
+<%@taglib prefix="tags" tagdir="/WEB-INF/tags" %>
+
+<div id="tasks-panel" class="panel panel-default" data-page-count="${totalPages}" data-page-number="1">
+    <div class="panel-body">
+        <jsp:include page="../fragment/tasks-list.jsp"/>
+        <tags:pager-nav/>
+        <tags:task-edit-modal/>
+    </div>
+</div>
+

@@ -5,41 +5,69 @@
      */
     let start = function() {
         timeChange($(".current-time"));
+        $('#loadMore').on("click", loadMoreTasks);
+        $(".btn.btn-danger").on("click", deleteTask);
     };
 
     /**
-     * Функция загрузки дополнительных задач вниз страницы
+     * 		var pathname = window.location.pathname; // Returns path only (/path/example.html)
+     // 	var url      = window.location.href;     // Returns full URL (https://example.com/path/example.html)
+     // 	var origin   = window.location.origin;   // Returns base URL (https://example.com)
+
+     // 	https://www.w3schools.com/jsref/prop_loc_search.asp
      */
-    $(document).ready(function() {
-        $("#loadMore").bind("click", function () {
-            $.ajax({
-                url: "/ajax/html/more/products", // обращение к сервлету, обрабатывающема аякс запросы
-                before: function() {
-                    $("#loadMore").addClass("hide-button"); // прячем кнопку загрузки
-                    $("#load-img").removeClass("hide-button "); // крутиться колесико =)
-                },
-                success: function (html) {
-                    $('#pager-nav').prepend(html); // выводим список задач
-                    $("#load-img").addClass("hide-button ");
-                    $("#loadMore").removeClass("hide-button ");
+    var loadMoreTasks = function () {
+        var pageCount = parseInt($('#tasks-panel').attr("data-page-count"));
+        var pageNumber = parseInt($('#tasks-panel').attr("data-page-number"));
+        var url = '/ajax/html/more' + location.pathname + '?page=' + (pageNumber + 1);
+        $.ajax({
+            url : url,
+            success : function(html) {
+                $('#pager-nav').prepend(html); //TODO Разобраться с порядком вставки элементов! Задачи вставляются не по порядку
+                pageNumber++; // Увеличиваем page number
+                if (pageNumber < pageCount) { // Если есть еще страницы для отображения
+                    $('#tasks-panel').attr("data-page-number", pageNumber);
+                } else { // В противном случае удаляем кнопку
+                    $('#loadMore').remove();
                 }
-            });
+            },
+            error : function(data) {
+                alert('Error' + data);
+            }
         });
-    });
+    };
+
+    //TODO Усли были подгружены новые задачи - эта функция не сработает!!! Разобраться!
+    var deleteTask = function() {
+        var task = $(this).closest(".panel.panel-default");
+        var taskId = $(task).attr("data-task-id");
+        var url = "/delete-task" + "?task-id=" + taskId;
+        $.ajax({
+                type : "GET",
+                url : url,
+                success : function(html) {
+                    task.remove();
+                },
+                error : function() {
+                    alert("Task dont deleted")
+                }
+            }
+        )
+    };
 
     /**
      * Загрузить старые задачи, а текущие убрать заменить
      */
     var loadOlderTasks = function() {
         // Обработчик клавиши Older
-    }
+    };
 
     /**
      * Загрузить новые задачи, а текущие убрать заменить
      */
     var loadNewerTasks = function() {
 
-    }
+    };
 
     /**
      * Returns current date and time
@@ -65,5 +93,5 @@
     /**
      * Start up init function
      */
-  start();
+    start();
 })();

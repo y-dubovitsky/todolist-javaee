@@ -1,6 +1,6 @@
 package todolist.servlets;
 
-import todolist.service.impl.ServiceManager;
+import todolist.service.ServiceManager;
 import todolist.service.TasksService;
 
 import javax.servlet.ServletException;
@@ -12,7 +12,7 @@ public abstract class AbstractController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        TasksService serviceManager = ServiceManager.getInstance(getServletContext()).getTasksServiceImpl();
+        tasksService = ServiceManager.getInstance(getServletContext()).getTasksService();
     }
 
     public final TasksService getTasksService() {

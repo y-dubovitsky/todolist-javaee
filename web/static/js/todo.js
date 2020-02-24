@@ -7,6 +7,7 @@
         timeChange($(".current-time"));
         $('#loadMore').on("click", loadMoreTasks);
         $(".btn.btn-danger").on("click", deleteTask);
+        changeTheme();
     };
 
     /**
@@ -89,6 +90,24 @@
             arg.text(getCurrentTime());
         }, 100);
     };
+
+    /**
+     * This function change main theme
+     */
+    var changeTheme = function() {
+        $("#switcher").bind("click", function() {
+            if($("#switcher").prop("checked") == 'checked') {
+                $(".theme.switcher").text("Light Theme");
+                $("#switcher").prop('checked', false);
+            }
+            else {
+                $(".row.container-context").addClass("dark-theme");
+                $(".theme.switcher").text("Dark Theme");
+                $("#switcher").prop('checked', true);
+            }
+        });
+    };
+
 
     /**
      * Start up init function

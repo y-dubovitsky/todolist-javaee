@@ -24,7 +24,8 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><button id="btn-log-in" class="btn btn-link" data-toggle="modal" data-target="#log-in-modal">Sign In</button></li>
+                <%--data-toggle="modal" data-target="#log-in-modal" Вот это я вырезал из кнопки Sign-in--%>
+                <li><a href="/sign-in" id="btn-log-in" class="btn btn-link">Sign In</a></li>
                 <li><button id="btn-registration-modal" class="btn btn-link" data-toggle="modal" data-target="#registration-modal">Sign Up</button></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"

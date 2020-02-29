@@ -1,10 +1,11 @@
 package todolist.entity.impl;
 
 import todolist.entity.AbstractEntity;
+import todolist.model.SocialAccount;
 
 import java.util.List;
 
-public class Account extends AbstractEntity<Integer> {
+public class Account extends AbstractEntity<Integer> implements SocialAccount {
 
     private String name;
     private String email;

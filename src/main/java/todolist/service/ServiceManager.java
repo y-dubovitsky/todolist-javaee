@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import todolist.service.impl.TaskServiceHibernateImpl;
 import todolist.service.impl.TasksServiceJDBCImpl;
+import todolist.service.impl.VkServiceImpl;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
@@ -21,6 +22,12 @@ import java.util.Properties;
 public class ServiceManager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceManager.class);
+
+    private final Properties applicationProperties = new Properties();
+    private BasicDataSource dataSource;
+    private SocialNetworkService socialNetworkService;
+    private Session session;
+    private final TasksService tasksService;
 
     /**
      * Создаем объект класса через Синглтон
@@ -43,9 +50,11 @@ public class ServiceManager {
     public TasksService getTasksService() {
         return tasksService;
     }
-
     public String getApplicationProperty(String key) {
         return applicationProperties.getProperty(key);
+    }
+    public SocialNetworkService getSocialNetworkService() {
+        return socialNetworkService;
     }
 
     /**
@@ -60,17 +69,13 @@ public class ServiceManager {
         }
     }
 
-    private final Properties applicationProperties = new Properties();
-    private BasicDataSource dataSource;
-    private Session session;
-    private final TasksService tasksService;
-
     /**
      * Constructor
      * @param context
      */
     private ServiceManager(ServletContext context) {
         tasksService = tasksServiceFactory((String)context.getAttribute("TASK_SERVICE_TYPE"));
+        socialNetworkService = new VkServiceImpl();
     }
 
     /**

@@ -13,12 +13,12 @@ public class FromSocialController extends AbstractController {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getNetworkService().getCode(resp);
+        String code = req.getParameter("code");
+        getNetworkService().getAccessTokenAndUserEmail(resp, code);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String code = req.getParameter("code");
-        getNetworkService().getAccessTokenAndUserEmail(resp, code);
+
     }
 }
